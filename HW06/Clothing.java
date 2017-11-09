@@ -7,9 +7,9 @@ public class Clothing{
     this.type = "Top";
     this.color = "Red";
   }
-  public Clothing(String t, String c){
-   this.type = t;
-   this.color = c;
+  public Clothing(String inputType, String inputColor){
+   setType(inputType);
+   setColor(inputColor);
   }
   public void setType(String input){
     this.type = input;
@@ -24,7 +24,7 @@ public class Clothing{
     return color;
   }
   public String toString(){
-    return ("Type: " + getType() + " Color: " + getColor());
+    return getType() + " " + getColor();
   }
   public boolean equals(Clothing instance){
     boolean bool = true;

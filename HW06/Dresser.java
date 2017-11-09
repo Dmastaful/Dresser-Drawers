@@ -6,33 +6,138 @@ public class Dresser{
   public Dresser(){
   }
   
-  public int drawerIdx = 0;
   public void add(Clothing cInstance){
-    if(cInstance.getType().equalsIgnoreCase("Undergarment") && drawerIdx < 10){
-      drawer[drawerIdx][0]=cInstance;
-      drawerIdx += 1;
-    }else if(cInstance.getType().equalsIgnoreCase("Socks") && cInstance.getType().equalsIgnoreCase("Stockings") && drawerIdx < 10){
-      drawer[drawerIdx][1]=cInstance;
-      drawerIdx += 1;
-    }else if(cInstance.getType().equalsIgnoreCase("Top") && drawerIdx < 10){
-      drawer[drawerIdx][2]=cInstance;
-      drawerIdx += 1;
-    }else if(cInstance.getType().equalsIgnoreCase("Bottom") && drawerIdx < 10){
-      drawer[drawerIdx][3]=cInstance;
-      drawerIdx += 1;
-    }else if(cInstance.getType().equalsIgnoreCase("Capes") && drawerIdx < 10){
-      drawer[drawerIdx][4]=cInstance;
-      drawerIdx += 1;
-    }
-    else{System.out.println("This drawer is full");}
+    int drawerIdx = 0;
+    int clothingIdx = 0;
+    if(cInstance.getType().equalsIgnoreCase("undergarment")){
+      drawerIdx = 0;
+      
+      while(clothingIdx<10){
+        if(drawer[drawerIdx][clothingIdx]==null){
+          drawer[drawerIdx][clothingIdx] = cInstance;
+          break;
+        }else{
+          clothingIdx++;
+          if(clothingIdx>=10) System.out.println("The drawer is full.");
+        }
+      }
+      
+    }else if(cInstance.getType().equalsIgnoreCase("socks") && cInstance.getType().equalsIgnoreCase("stockings")){
+      drawerIdx = 1;
+      
+      while(clothingIdx<10){
+        if(drawer[drawerIdx][clothingIdx]==null){
+          drawer[drawerIdx][clothingIdx] = cInstance;
+          break;
+        }else{
+          clothingIdx++;
+          if(clothingIdx>=10) System.out.println("The drawer is full.");
+        }
+      }
+      
+    }else if(cInstance.getType().equalsIgnoreCase("top")){
+      drawerIdx = 2;
+      
+      while(clothingIdx<10){
+        if(drawer[drawerIdx][clothingIdx]==null){
+          drawer[drawerIdx][clothingIdx] = cInstance;
+          break;
+        }else{
+          clothingIdx++;
+          if(clothingIdx>=10) System.out.println("The drawer is full.");
+        }
+      }
+      
+    }else if(cInstance.getType().equalsIgnoreCase("bottom")){
+      drawerIdx = 3;
+      
+      while(clothingIdx<10){
+        if(drawer[drawerIdx][clothingIdx]==null){
+          drawer[drawerIdx][clothingIdx] = cInstance;
+          break;
+        }else{
+          clothingIdx++;
+          if(clothingIdx>=10) System.out.println("The drawer is full.");
+        }
+      }
+      
+    }else if (cInstance.getType().equalsIgnoreCase("cape")){
+      drawerIdx = 4;
+      
+      while(clothingIdx<10){
+        if(drawer[drawerIdx][clothingIdx]==null){
+          drawer[drawerIdx][clothingIdx] = cInstance;
+          break;
+        }else{
+          clothingIdx++;
+          if(clothingIdx>=10) System.out.println("The drawer is full.");
+        }
+      }
+      
+    }else{}
   }
   
   public void remove(Clothing cInstance){
-    if(cInstance.equals(cInstance)){
-      cInstance = null;
+    int drawerIdx = 0;
+    int clothingIdx = 0;
+    while(clothingIdx<10){
+      if(cInstance.getType().equalsIgnoreCase("undergarment")){
+        drawerIdx = 0;
+        while(clothingIdx<10){
+          if(drawer[drawerIdx][clothingIdx].equals(cInstance)){
+            drawer[drawerIdx][clothingIdx] = null;
+            break;
+          }
+          clothingIdx++;
+        }
+      }else if(cInstance.getType().equalsIgnoreCase("socks") && cInstance.getType().equalsIgnoreCase("stockings")){
+        drawerIdx = 1;
+        while(clothingIdx<10){
+          if(drawer[drawerIdx][clothingIdx].equals(cInstance)){
+            drawer[drawerIdx][clothingIdx] = null;
+            break;
+          }
+          clothingIdx++;
+        }
+      }else if(cInstance.getType().equalsIgnoreCase("top")){
+        drawerIdx = 2;
+        while(clothingIdx<10){
+          if(drawer[drawerIdx][clothingIdx].equals(cInstance)){
+            drawer[drawerIdx][clothingIdx] = null;
+            break;
+          }
+          clothingIdx++;
+        }
+      }else if(cInstance.getType().equalsIgnoreCase("bottom")){
+        drawerIdx = 3;
+        while(clothingIdx<10){
+          if(drawer[drawerIdx][clothingIdx].equals(cInstance)){
+            drawer[drawerIdx][clothingIdx] = null;
+            break;
+          }
+          clothingIdx++;
+        }
+      }else if(cInstance.getType().equalsIgnoreCase("cape")){
+        drawerIdx = 4;
+        while(clothingIdx<10){
+          if(drawer[drawerIdx][clothingIdx].equals(cInstance)){
+            drawer[drawerIdx][clothingIdx] = null;
+            break;
+          }
+          clothingIdx++;
+        }
+      }else{}
     }
-  }
+  }  
+
   public void print(){
-    System.out.println(Arrays.toString(drawer));
+    for(int i = 0; i < 5; i++){
+      System.out.println("Drawer " + i);
+      for(int j = 0; j < 10; j++){
+        if(drawer[i][j]==null) System.out.print(""); 
+        else System.out.print(drawer[i][j]+" ");
+      }
+      System.out.println("");
+    }
   }
 }
